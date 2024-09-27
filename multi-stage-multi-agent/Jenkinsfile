@@ -22,7 +22,7 @@ pipeline {
       }
       steps {
         sh 'mongo --version'
-      
+      }
       stage('WEB-SERVER') {
       agent {
         docker { image 'apache' }
