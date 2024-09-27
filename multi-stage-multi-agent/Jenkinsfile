@@ -16,6 +16,20 @@ pipeline {
       steps {
         sh 'node --version'
       }
+      stage('DB') {
+      agent {
+        docker { image 'mongo' }
+      }
+      steps {
+        sh 'mongo --version'
+      
+      stage('WEB-SERVER') {
+      agent {
+        docker { image 'apache' }
+      }
+      steps {
+        sh 'systemctl start apache'
+      }
     }
   }
 }
